@@ -21,8 +21,8 @@ Keyword: image processing; eye detection; computational geometry.
 ## Structure
 Roughly speaking, this project can be divided into two parts: 
 
-- Closed-eye repair algorithmn: The concept behind this algorithmn is to detect the position of eyes at first. And then, calculate the area of them. In the end, it uses the masks made with the area to repair eye-closeness.
-- Web interface: To better demonstrating our work, we conbined our system and Django web framework. As a result, you can see the results we did from the website.
+- **Closed-eye repair algorithmn:** The concept behind this algorithmn is to detect the position of eyes at first. And then, calculate the area of them. In the end, it uses the masks made with the area to repair eye-closeness.
+- **Web interface:** To better demonstrating our work, we conbined our system and Django web framework. As a result, you can see the results we did from the website.
 
 ## Getting Started
 Set up all prerequisites
