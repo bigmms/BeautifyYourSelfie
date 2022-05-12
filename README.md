@@ -4,6 +4,10 @@ Beautify Your Selfie with Eye-closeness Estimation
 ## Introduction
 The selfie is definitely one of the most prominent cultural phenomena of the 21st century. Everyone always wants his/her state perfect in that tiny square. However, even though we try our best to keep everything good when we take a selfie, there is something we can't control. For example, our blinking behavior. This natural behavior usually makes our eye closed in selfies. Thus, we developed Beautify Your Selfie with Eye-closeness Estimation. It is a system that aims to repair your eye_closeness in your selfiie with eye landmark detection and image fusion. 
 
+<p>
+<img src="./img/demo.gif">
+</p>
+
 Keyword: image processing; eye detection; computational geometry.
 
 ## Prerequisites
