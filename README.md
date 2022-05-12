@@ -42,7 +42,9 @@ The results will be saved in `.\app\static\caseX\`.
 
 ## Results
 Below are our results in eight different situations:
-
+<p>
+<img src="./img/all.png">
+</p>
 
 
 
