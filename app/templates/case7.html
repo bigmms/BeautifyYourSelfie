@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Beautify Your Selfie with Eye-closeness Estimation</title>
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <!-- Template Stylesheet -->
+        <!-- <link href="style.css" rel="stylesheet"> -->
+        <!-- <link href="C:\Users\洪佳瑜\Desktop\開放平台\finalProject\Django_Upfile\upfile\app\templates\css\style.css" rel="stylesheet"> -->
+    </head>
+    <style>
+
+        /*******************************/
+        /********* General CSS *********/
+        /*******************************/
+        body {
+            color: #797979;
+            background: #ffffff;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        h1,
+        h2, 
+        h3, 
+        h4,
+        h5, 
+        h6 {
+            color: #343148;
+        }
+
+        a {
+            color: #454545;
+            transition: .3s;
+        }
+
+        a:hover,
+        a:active,
+        a:focus {
+            color: #F7CAC9;
+            outline: none;
+            text-decoration: none;
+        }
+
+        .btn:focus,
+        .form-control:focus {
+            box-shadow: none;
+        }
+
+        .container-fluid {
+            max-width: 1366px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            display: none;
+            background: #F7CAC9;
+            width: 44px;
+            height: 44px;
+            text-align: center;
+            line-height: 1;
+            font-size: 22px;
+            right: 15px;
+            bottom: 15px;
+            transition: background 0.5s;
+            z-index: 9;
+        }
+
+        .back-to-top:hover {
+            background: #343148;
+        }
+
+        .back-to-top:hover i {
+            color: #F7CAC9;
+        }
+
+        .back-to-top i {
+            color: #343148;
+            padding-top: 10px;
+        }
+
+        /*******************************/
+        /******* Section Header ********/
+        /*******************************/
+        .section-header {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            margin-bottom: 45px;
+        }
+
+        .section-header p {
+            display: inline-block;
+            margin: 0 30px;
+            margin-bottom: 5px;
+            padding: 0 10px;
+            position: relative;
+            font-size: 16px;
+            font-weight: 600;
+            background: #ffffff;
+        }
+
+        .section-header p::after {
+            position: absolute;
+            content: "";
+            height: 2px;
+            top: 11px;
+            right: -30px;
+            left: -30px;
+            background: #F7CAC9;
+            z-index: -1;
+        }
+
+        .section-header h2 {
+            margin: 0;
+            position: relative;
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 767.98px) {
+            .section-header h2 {
+                font-size: 30px;
+            }
+        }
+
+
+        /*******************************/
+        /********* Pricing CSS *********/
+        /*******************************/
+        .discount {
+            position: relative;
+            width: 100%;
+            margin: 45px 0;
+            padding: 90px 0;
+            background: linear-gradient(rgba(247, 202, 201, .7), rgba(247, 202, 201, .7)), url(../img/discount-bg.png);
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .discount .container {
+            max-width: 750px;
+            text-align: center;
+        }
+
+        .discount .section-header {
+            margin-bottom: 20px;
+        }
+
+        .discount .section-header p {
+            color: #343148;
+            background: transparent;
+        }
+
+        .discount .section-header p::after {
+            display: none;
+        }
+
+        .discount .section-header h2 span {
+            color: #F32B56;
+            font-size: 50px;
+        }
+
+        .discount .discount-text p {
+            color: #454545;
+        }
+
+        .discount .discount-text .btn {
+            margin-top: 10px;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #F7CAC9;
+            background: #343148;
+            border-radius: 0;
+            transition: .3s;
+        }
+
+        .mail {
+            margin-top: 10px;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 1200;
+            letter-spacing: 1px;
+            /* color: #F7CAC9; */
+            background: #ffffff;
+            border-radius: 0;
+            transition: .3s;
+        }
+
+        .discount .discount-text .btn:hover {
+            color: #343148;
+            background: #ffffff;
+        }
+
+
+        /*******************************/
+        /********* Pricing CSS *********/
+        /*******************************/
+        .price {
+            position: relative;
+            width: 100%;
+            padding: 45px 0 15px 0;
+        }
+
+        .price .price-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .price .price-header,
+        .price .price-body,
+        .price .price-footer {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            background: #ffffff;
+            overflow: hidden;
+        }
+
+        .price .price-header {
+            padding: 30px;
+            background: #F7CAC9;
+            color: #343148;
+        }
+
+        .price .price-item.featured-item .price-header {
+            background: #343148;
+            color: #F7CAC9;
+        }
+
+        .price .price-status {
+            margin-top: -30px;
+            text-align: right;
+        }
+
+        .price .price-status span {
+            position: relative;
+            display: inline-block;
+            height: 30px;
+            right: -30px;
+            padding: 7px 10px;
+            text-align: center;
+            color: #343148;
+            font-size: 14px;
+            line-height: 14px;
+            background: #F7CAC9;
+        }
+
+        .price .price-title h2 {
+            font-size: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .price .price-prices h2 {
+            font-size: 45px;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+
+        .price .price-prices h2 small {
+            position: absolute;
+            font-size: 18px;
+            font-weight: 400;
+            margin-top: 9px;
+            margin-left: -12px;
+        }
+
+        .price .price-prices h2 span {
+            margin-left: 1px;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .price .price-item.featured-item h2 {
+            color: #F7CAC9;
+        }
+
+        .price .price-body {
+            padding: 25px 0 20px 0;
+            border: 1px solid rgba(0, 0, 0, .07);
+            border-bottom: none;
+        }
+
+        .price .price-description ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .price .price-description ul li {
+            padding: 7px;
+            border-bottom: 1px solid rgba(0, 0, 0, .07);
+        }
+
+        .price .price-description ul li:last-child {
+            border: none;
+        }
+
+        .price .price-action {
+            border: 1px solid rgba(0, 0, 0, .07);
+            border-top: none;
+        }
+
+        .price .price-action a.btn {
+            margin-bottom: 30px;
+            padding: 12px 20px;
+            color: #343148;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-radius: 0;
+            background: #F7CAC9;
+            transition: .3s;
+        }
+
+        .price .price-action a:hover,
+        .price .price-item.featured-item .price-action a {
+            color: #F7CAC9;
+            background: #343148;
+        }
+
+        .price .price-item.featured-item .price-action a:hover {
+            color: #343148;
+            background: #F7CAC9;
+        }
+
+    </style>
+    <body>
+        <form action="/case7/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="price">
+            <div class="container">
+                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    
+                    <h2>Beautify Your Selfie with Eye-Closeness Estimation</h2>
+					<p>Open your eyes 24/7</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 fadeInUp" data-wow-delay="0.0s">
+                                                <!-- {% csrf_token %} -->
+                        <!-- -->
+                       <div class="price-item">
+                            <div class="price-header">
+                                <div class="price-title">
+                                    <h2>Before</h2>
+                                </div>
+                            </div>
+                            <div class="price-body">
+                                
+                            </div>
+                            <div class="price-footer">
+                                <div class="price-action">
+                                    <a class="btn">
+                                        <img src= "{% static 'case7/1.jpg' %}" width="180" >
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="price-item featured-item">
+                            <div class="price-header">
+                                <div class="price-title">
+                                    <h2>AFTER</h2>
+                                </div>
+                            </div>
+                            <div class="price-body">
+
+                            </div>
+                            <div class="price-footer">
+                                <div class="price-action">
+                                    <a class="btn">
+                                        <img src= "{% static 'case7/result.JPG' %}" width="180" alt="result">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- -->
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- Discount Start -->
+        <div class="discount zoomIn" data-wow-delay="0.1s" style="margin-bottom: 10px;">
+			<div class="container">
+
+                <div class="container discount-text">
+                    <input class="btn" type="submit" value = "REPAIR">
+                </div>
+
+            </div>
+        </div>
+    </form>
+    </body>
+</html>
