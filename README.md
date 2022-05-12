@@ -37,9 +37,8 @@ and put it in `.\`.
 Execute the follwing commands:
 
     $ git clone https://github.com/bigmms/BeautifyYourSelfie.git
-    
-    $  cd Beautify Your Selfie with Eye-Closeness Estimation
-    $  python manage.py runserver
+    $ cd Beautify Your Selfie with Eye-Closeness Estimation
+    $ python manage.py runserver
     >> Run the local server and go to http://127.0.0.1:8000/
 
 The results will be saved in `.\app\static\caseX\`.
